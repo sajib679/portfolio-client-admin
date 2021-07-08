@@ -9,7 +9,7 @@ const Projects = ({ title, showLink }) => {
   return (
     <section className="section projects" data-aos="fade-up">
       <Title title={title} />
-      <div className="section-center projects-center">
+      <div className="section-center">
         {allProject?.map((project, index) => {
           return (
             <div

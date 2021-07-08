@@ -796,21 +796,6 @@ Projects
   z-index: 10;
 }
 
-.project-img::after {
-  display: block;
-  justify-content: center;
-  content: "";
-  position: absolute;
-
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom right, #2caeba, #222);
-  opacity: 0.85;
-  transition: all 0.3s linear;
-}
-.project:hover .project-img::after {
-  opacity: 0;
-}
 .project-info {
   background: #fff;
   padding: 1rem 2rem;

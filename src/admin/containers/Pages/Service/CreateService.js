@@ -4,8 +4,6 @@ import { createService } from "../../../../store/actions";
 import Input from "../../../components/UI/Input";
 import Modal from "../../../components/UI/Modal";
 
-import "./styles.css";
-
 const CreateServiceModal = ({ modalShow, setModalShow }) => {
   const initialState = "";
   const [serviceTitle, setServiceTitle] = useState(initialState);

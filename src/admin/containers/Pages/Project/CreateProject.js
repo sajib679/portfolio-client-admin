@@ -4,8 +4,6 @@ import { createProject } from "../../../../store/actions";
 import Input from "../../../components/UI/Input";
 import Modal from "../../../components/UI/Modal";
 
-import "./styles.css";
-
 const CreateProjectModal = ({ modalShow, setModalShow }) => {
   const initialState = "";
   const [projectTitle, setProjectTitle] = useState(initialState);
@@ -13,6 +11,8 @@ const CreateProjectModal = ({ modalShow, setModalShow }) => {
   const [projectCategory, setProjectCategoryId] = useState(initialState);
   const [projectPicture, setProjectPictures] = useState([]);
   const [projectLink, setProjectLink] = useState([]);
+  const [projectPictureLink, setProjectPictureLink] = useState([]);
+
   const [projectTechStack, setProjectTechStack] = useState([]);
 
   const categories = useSelector((state) => state.category.allCategory);
@@ -27,8 +27,12 @@ const CreateProjectModal = ({ modalShow, setModalShow }) => {
     form.append("link", projectLink);
     form.append("techStack", projectTechStack);
 
-    for (const picture of projectPicture) {
-      form.append("projectPictures", picture);
+    if (projectPicture.length > 0) {
+      for (const picture of projectPicture) {
+        form.append("projectPictures", picture);
+      }
+    } else {
+      form.append("projectPictures", projectPictureLink);
     }
 
     dispatch(createProject(form));
@@ -97,6 +101,14 @@ const CreateProjectModal = ({ modalShow, setModalShow }) => {
       {projectPicture.map((pic, index) => (
         <div key={index}> {pic.name} </div>
       ))}
+
+      <Input
+        label="Project Picture Link"
+        type="text"
+        placeholder={`Enter Project Picture Link`}
+        value={projectPictureLink}
+        onChange={(e) => setProjectPictureLink(e.target.value)}
+      />
       <Input
         // label="Product Image"
         type="file"

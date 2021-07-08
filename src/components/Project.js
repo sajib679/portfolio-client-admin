@@ -13,11 +13,7 @@ const Project = ({
 }) => {
   return (
     <article className="project">
-      <img
-        alt=""
-        src={imageUrl(projectPictures[0].img)}
-        className="project-img"
-      />
+      <img alt="" src={projectPictures[0].img} className="project-img" />
       <div className="project-info">
         <span className="project-number">{index + 1}</span>
         <h3>{title}</h3>
