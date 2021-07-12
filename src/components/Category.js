@@ -22,16 +22,13 @@ const Category = () => {
       <div className="section-center services-center">
         {categories.map((category, index) => {
           const { _id, title, desc, categoryPictures, icon } = category;
-          let delay = 100;
-          delay += index * 300;
 
-          console.log(delay);
           return (
             <article
               key={_id}
               className="service"
               data-aos={`${aosHelperFade(index)}`}
-              data-aos-delay={`${delay}`}
+              data-aos-delay="300"
               data-aos-anchor-placement="bottom-bottom"
             >
               {icon ? (
